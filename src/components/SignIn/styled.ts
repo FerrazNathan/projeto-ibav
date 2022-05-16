@@ -8,6 +8,9 @@ export const ContainerRight = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 768px) {
+        margin-left: 5%;
+    }
 `;
 
 export const ModalSign = styled.div`
@@ -24,11 +27,16 @@ export const ModalSign = styled.div`
 export const Title = styled.h1<Props>`
     font-size: ${({ Fsize }) => Fsize ? `${Fsize}px` : 'auto'};
     text-transform: uppercase;
-
+    text-align: center;
     strong {
         color:#c60401;
     }
 `;
+
+export const Text = styled.p<Props>`
+    text-align: center;
+    font-size: 20px;
+`
 
 
 export const DivInput = styled.div`
@@ -107,8 +115,8 @@ export const Select = styled.select`
     padding: 1px;
     border: 1px solid #282c34;
     @media(max-width:800px){
-        height: auto;
-        font-size: 25px;
+        height: 55%;
+        font-size: 14px;
     }
     &:focus{
     background-color: #e8f0fe;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ContainerRight,
   Title,
+  Text,
   Input,
   Select,
   DivInput,
@@ -18,17 +19,33 @@ const SignIn = () => {
   const [church, setChurch] = useState("");
   const [sheperd, setSheperd] = useState("");
   const [city, setCity] = useState("");
-  const [oficce, setOficce] = useState("");
+  const [office, setOffice] = useState("");
 
-  const url =
-    "https://capacitacao-b2f17-default-rtdb.firebaseio.com/inscritos.json";
-  const Save = (data) => {
-    axios.post(url, data).then((res) => {
-      window.location.href = "/userlist.html";
-      alert("sua inscrição foi efetuada com sucesso");
-      console.log(res, "res");
-    });
-  };
+  const url = "https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json";
+
+  const saveData = () => {
+    try {
+      axios.post(url, {
+        name,
+        tel,
+        church,
+        sheperd,
+        city,
+        office,
+      }).then((response) => {
+        console.log('o que chega aqui =>', response);
+        // window.location.href = "/userlist.html";
+        alert("sua inscrição foi efetuada com sucesso");
+      }).catch((error) => {
+        alert("Preencha todos os campos para concluir a sua inscrição")
+      })
+    }
+    catch (e) {
+      throw new Error("Algo deu errado na conexão");
+    }
+  }
+
+
 
   return (
     <ContainerRight>
@@ -36,6 +53,9 @@ const SignIn = () => {
         <Title Fsize={30}>
           Faça sua <strong>inscrição</strong> agora
         </Title>
+        <Text>
+          Valor: R$ 40,00
+        </Text>
         <Formulary>
           <div className="DivControl">
             <label>Nome:</label>
@@ -82,33 +102,17 @@ const SignIn = () => {
             </div>
             <div className="Select">
               <label>cargo:</label>
-              <Select onChange={(value) => setOficce(value.target.value)}>
+              <Select onChange={(value) => setOffice(value.target.value)}>
                 <option></option>
-                <option value="Pastor">Pastor</option>
-
+                <option value="Pastor" >Pastor</option>
                 <option value="Dicipulador">Dicipulador</option>
-
                 <option value="Lider">Lider</option>
-
                 <option value="Membro de celula">Membro de célula</option>
               </Select>
             </div>
           </DivInput>
         </Formulary>
-        <ButtonSignUp
-          onClick={(e) =>
-            name && tel && church && sheperd && oficce && city
-              ? Save({
-                  name: name,
-                  tel: tel,
-                  church: church,
-                  sheperd: sheperd,
-                  oficce: oficce,
-                  city: city,
-                })
-              : alert("preencha todos os campos")
-          }
-        >
+        <ButtonSignUp onClick={() => { saveData() }}>
           Inscreva-se
         </ButtonSignUp>
       </ModalSign>

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import Container, { LogoIbav, BtnLink, DivBtn, BtnSign } from "./style";
 
@@ -10,10 +9,10 @@ const Header = ({ about }: Props) => {
 
   return (
     <Container>
-      <LogoIbav src='../assets/logoIbav.jpeg' />      
+      <LogoIbav src='../assets/radicais4.png' />
       <DivBtn>
         <BtnLink onClick={() => (window.location.href = "/about.html")}>
-          Sobre a capacitação
+          Sobre a convenção Radicais Livres
         </BtnLink>
         <BtnLink onClick={() => (window.location.href = "/userlist.html")}>
           Lista de inscritos
