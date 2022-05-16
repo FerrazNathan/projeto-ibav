@@ -37,7 +37,7 @@ export const DivInput = styled.div`
 
 export const Input = styled.input`
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid #282c34;
     border-radius: calc(0.5 * var(--ntp-realbox-height));
     color: var(--search-box-text);
     font-family: inherit;
@@ -46,10 +46,14 @@ export const Input = styled.input`
     width: 100%;
     position: relative;
     margin: 5px 0px;
-
+    border-radius: 5px;
+    padding: 2px;
     @media(max-width: 800px){
         height: auto;
         font-size: 25px;
+    }
+    &:focus{
+    background-color: #e8f0fe;
     }
 `;
 
@@ -91,7 +95,6 @@ export const ButtonSignUp = styled.button`
 
 export const Select = styled.select`
     background-color: transparent;
-    border: 1px solid black;
     border-radius: calc(0.5 * var(--ntp-realbox-height));
     color: var(--search-box-text);
     font-family: inherit;
@@ -100,10 +103,14 @@ export const Select = styled.select`
     width: 100%;
     position: relative;
     margin: 5px 0px;
-
+    border-radius: 5px;
+    padding: 1px;
+    border: 1px solid #282c34;
     @media(max-width:800px){
         height: auto;
         font-size: 25px;
     }
-
+    &:focus{
+    background-color: #e8f0fe;
+    }
     `;
