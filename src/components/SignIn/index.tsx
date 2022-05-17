@@ -34,7 +34,7 @@ const SignIn = () => {
         office,
       }).then((response) => {
         console.log('o que chega aqui =>', response);
-        // window.location.href = "/userlist.html";
+        window.location.href = "/userlist";
         alert("sua inscrição foi efetuada com sucesso");
       }).catch((error) => {
         alert("Preencha todos os campos para concluir a sua inscrição")
@@ -44,8 +44,6 @@ const SignIn = () => {
       throw new Error("Algo deu errado na conexão");
     }
   }
-
-
 
   return (
     <ContainerRight>
@@ -96,6 +94,7 @@ const SignIn = () => {
             <div className="DivInput">
               <label>igreja:</label>
               <Input
+                require
                 type="text"
                 onChange={(e: any) => setChurch(e.target.value)}
               />

@@ -19,8 +19,7 @@ const Container = styled.header`
 
 export const LogoIbav = styled.img`
     height: auto;
-    width: 110px;
-    padding: 14px 0px;
+    width: 125px;
 `;
 
 export const BtnLink = styled.button`

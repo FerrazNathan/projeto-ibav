@@ -11,10 +11,10 @@ const Header = ({ about }: Props) => {
     <Container>
       <LogoIbav src='../assets/radicais4.png' />
       <DivBtn>
-        <BtnLink onClick={() => (window.location.href = "/about.html")}>
+        <BtnLink onClick={() => (window.location.href = "/about")}>
           Sobre a convenção Radicais Livres
         </BtnLink>
-        <BtnLink onClick={() => (window.location.href = "/userlist.html")}>
+        <BtnLink onClick={() => (window.location.href = "/userlist")}>
           Lista de inscritos
         </BtnLink>
         {about == true && (
