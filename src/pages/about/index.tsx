@@ -21,21 +21,21 @@ const About = () => {
                         <FaRegCalendarAlt className="Icon" />
                         <div>
                             <h1>Data</h1>
-                            <h2>12/10/2021</h2>
+                            <h2>30/07/2022</h2>
                         </div>
                     </DivInfo>
                     <DivInfo>
                         <BiTime className="Icon" />
                         <div>
                             <h1>horário</h1>
-                            <h2>14:00 ás 20:00</h2>
+                            <h2>09:00 ás 20:00</h2>
                         </div>
                     </DivInfo>
                     <DivInfo>
                         <VscLocation className="Icon" />
                         <div>
                             <h1>local</h1>
-                            <h2>ibav mauá</h2>
+                            <h2>ibav Ribeirão Pires</h2>
                         </div>
                     </DivInfo>
                 </DivGeneral>

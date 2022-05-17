@@ -24,13 +24,14 @@ export const ContainerRight = styled.div`
     display: flex;
     align-items: center;
 		margin-right: 5%;
+    height: 75vh;
 `;
 
 export const ContainerLeft = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-left: 3%;
     @media(max-width:800px){
         display: none;
     }
@@ -67,7 +68,7 @@ export const BtnSave = styled.button`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0px 50px;
+  padding: 20px 60px;
 
   @media(max-width: 800px){
     padding: 0px 0px;
@@ -76,7 +77,8 @@ export const Container = styled.div`
 `
 
 export const LogoEvent = styled.img`
-  height: 70%;
+  height: 62vh;
+  width: 35vw;
 `
 
 export const Title = styled.h1<Props>`
