@@ -7,7 +7,7 @@ const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 30px;
+    padding: 0px 6%;
 
     @media (max-width : 800px){
         height: auto;
@@ -19,8 +19,7 @@ const Container = styled.header`
 
 export const LogoIbav = styled.img`
     height: auto;
-    width: 310px;
-    padding: 14px 0px;
+    width: 125px;
 `;
 
 export const BtnLink = styled.button`

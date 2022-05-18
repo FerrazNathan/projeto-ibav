@@ -15,7 +15,7 @@ const UserList = (Data) => {
   const [loading, setLoading] = useState<any>(true);
   const [data, setData] = useState<any>([]);
 
-  const url = `https://capacitacao-b2f17-default-rtdb.firebaseio.com/inscritos.json`;
+  const url = `https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json`;
 
   useEffect(() => {
     axios.get(url).then((res) => {

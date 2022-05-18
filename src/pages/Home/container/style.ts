@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface Props {
-    Fsize?: any;
+	Fsize?: any;
 }
 
 const DivImage = styled.div`
@@ -23,13 +23,15 @@ export const InputValues = styled.input`
 export const ContainerRight = styled.div`
     display: flex;
     align-items: center;
+		margin-right: 5%;
+    height: 75vh;
 `;
 
 export const ContainerLeft = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-left: 3%;
     @media(max-width:800px){
         display: none;
     }
@@ -64,60 +66,59 @@ export const BtnSave = styled.button`
 `;
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
 
-    @media(max-width: 800px){
-        padding: 0px 0px;
-        margin: 80px 0;
-    }
-
-    `;
+  @media(max-width: 800px){
+    padding: 0px 0px;
+    margin: 80px 0;
+  }
+`
 
 export const LogoEvent = styled.img`
-    height: 70%;
-`;
+  height: 62vh;
+  width: 35vw;
+`
 
 export const Title = styled.h1<Props>`
-    font-size: ${({ Fsize }) => Fsize ? `${Fsize}px` : 'auto'};
-    text-transform: uppercase;
-    color: ${({ color }) => color ? `${color}` : 'black'};
-    strong {
-        color:#c60401;
-    }
-`;
+  font-size: ${({ Fsize }) => Fsize ? `${Fsize}px` : 'auto'};
+  text-transform: uppercase;
+  color: ${({ color }) => color ? `${color}` : 'black'};
+  strong {
+    color:#c60401;
+  }
+`
 
 export const DivText = styled.div`
-    line-height: 0;
-
-    h2 {
-        font-size: 20px;
-    }
-`;
+  line-height: 0;
+  h2 {
+    font-size: 20px;
+  }
+`
 
 export const Divided = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin: 25px 0;
-`;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+`
 
 export const DivInput = styled.div`
-    display: flex;
-`;
+  display: flex;
+`
 
 export const Input = styled.input`
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: calc(0.5 * var(--ntp-realbox-height));
-    color: var(--search-box-text);
-    font-family: inherit;
-    font-size: inherit;
-    outline: none;
-    width: 100%;
-    position: relative;
-    margin: 5px 0px;
-`;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: calc(0.5 * var(--ntp-realbox-height));
+  color: var(--search-box-text);
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  width: 100%;
+  position: relative;
+  margin: 5px 0px;
+`
 
 export const Formulary = styled.form`
     display: flex;
