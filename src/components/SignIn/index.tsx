@@ -11,6 +11,7 @@ const SignIn = () => {
 	const [sheperd, setSheperd] = useState("");
 	const [city, setCity] = useState("");
 	const [office, setOffice] = useState("");
+	const [data, setData] = useState<any>([]);
 
 	const url = "https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json";
 
@@ -43,7 +44,6 @@ const SignIn = () => {
 		.then((res) => {
       if (res.data) {
         setData(Object.entries(res.data));
-        setLoading(false);
       }
     });
   }, []);
