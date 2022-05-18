@@ -1,15 +1,6 @@
-import React, { useState } from "react";
-import {
-	ContainerRight,
-	Title,
-	Text,
-	Input,
-	Select,
-	DivInput,
-	ButtonSignUp,
-	Formulary,
-	ModalSign,
-} from "./styled";
+import React, { useState, useEffect } from "react";
+import * as S from './styled'
+import {Input} from "./styled";
 import NumberFormat from "react-number-format";
 import axios from "axios";
 
@@ -32,11 +23,13 @@ const SignIn = () => {
 				sheperd,
 				city,
 				office,
-			}).then((response) => {
-				console.log('o que chega aqui =>', response);
+				status: Count.length > 300 ? 'lista-espera' : 'ok'
+			})
+			.then((response) => {
 				window.location.href = "/userlist";
 				alert("sua inscrição foi efetuada com sucesso");
-			}).catch((error) => {
+			})
+			.catch((error) => {
 				alert("Preencha todos os campos para concluir a sua inscrição")
 			})
 		}
@@ -45,27 +38,39 @@ const SignIn = () => {
 		}
 	}
 
+	useEffect(() => {
+    axios.get(url)
+		.then((res) => {
+      if (res.data) {
+        setData(Object.entries(res.data));
+        setLoading(false);
+      }
+    });
+  }, []);
+
+	const Count = data.map((item: { name: any }[]) => item[1].name);
+
 	return (
-		<ContainerRight>
-			<ModalSign>
-				<Title Fsize={30}>
+		<S.ContainerRight>
+			<S.ModalSign>
+				<S.Title Fsize={30}>
 					Faça sua <strong>inscrição</strong> agora
-				</Title>
-				<Text>
+				</S.Title>
+				<S.Text>
 					Valor: R$ 40,00
-				</Text>
-				<Formulary>
+				</S.Text>
+				<S.Formulary>
 					<div className="DivControl">
 						<label>Nome:</label>
-						<Input type="text" onChange={(e: any) => setName(e.target.value)} />
+						<S.Input type="text" onChange={(e: any) => setName(e.target.value)} />
 					</div>
-					<DivInput>
+					<S.DivInput>
 						<div className="DivInput">
 							<label>Telefone:</label>
 							<NumberFormat
 								customInput={Input}
 								label="Telefone"
-								format="(##) # ####-####"
+								format="(##) #####-####"
 								mask="_"
 								minLength={10}
 								allowNegative={false}
@@ -77,23 +82,23 @@ const SignIn = () => {
 						</div>
 						<div className="DivControl">
 							<label>Cidade:</label>
-							<Input
+							<S.Input
 								type="text"
 								onChange={(e: any) => setCity(e.target.value)}
 							/>
 						</div>
-					</DivInput>
+					</S.DivInput>
 					<div className="DivControl">
 						<label>pastor responsavel:</label>
-						<Input
+						<S.Input
 							type="text"
 							onChange={(e: any) => setSheperd(e.target.value)}
 						/>
 					</div>
-					<DivInput>
+					<S.DivInput>
 						<div className="DivInput">
 							<label>igreja:</label>
-							<Input
+							<S.Input
 								required='true'
 								type="text"
 								onChange={(e: any) => setChurch(e.target.value)}
@@ -101,34 +106,27 @@ const SignIn = () => {
 						</div>
 						<div className="Select">
 							<label>cargo:</label>
-							<Select onChange={(value) => setOffice(value.target.value)}>
+							<S.Select  onChange={(e: any) => setOffice(e.target.value)}>
 								<option></option>
-								<option value="Pastor" >Pastor</option>
+								<option value="Pastor">Pastor</option>
 								<option value="Dicipulador">Dicipulador</option>
 								<option value="Lider">Lider</option>
 								<option value="Membro de celula">Membro de célula</option>
-							</Select>
+							</S.Select>
 						</div>
-					</DivInput>
-				</Formulary>
-				<ButtonSignUp
+					</S.DivInput>
+				</S.Formulary>
+				<S.ButtonSignUp
 					onClick={() =>
 						name && tel && church && sheperd && office && city
-							? saveData({
-								name: name,
-								tel: tel,
-								church: church,
-								sheperd: sheperd,
-								office: office,
-								city: city,
-							})
+							? saveData()
 							: alert("preencha todos os campos")
 					}
 				>
 					Inscreva-se
-				</ButtonSignUp>
-			</ModalSign>
-		</ContainerRight>
+				</S.ButtonSignUp>
+			</S.ModalSign>
+		</S.ContainerRight>
 	);
 };
 

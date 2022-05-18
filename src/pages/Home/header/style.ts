@@ -20,6 +20,7 @@ const Container = styled.header`
 export const LogoIbav = styled.img`
     height: auto;
     width: 125px;
+    cursor: pointer;
 `;
 
 export const BtnLink = styled.button`
