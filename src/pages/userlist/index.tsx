@@ -39,7 +39,6 @@ const UserList = (Data) => {
   return (
     <>
       <Header about={true} />
-
       <DivGeneral>
         {loading ? (
           <img className="Loading" src="../assets/loading-buffering.gif" />
@@ -64,7 +63,7 @@ const UserList = (Data) => {
                       <ListDescribe>{item[1].name}</ListDescribe>
                       <ListDescribe>{item[1].tel}</ListDescribe>
                       <ListDescribe display="none">
-                        {item[1].oficce}
+                        {item[1].office}
                       </ListDescribe>
                       <ListDescribe display="none">
                         {item[1].sheperd}
