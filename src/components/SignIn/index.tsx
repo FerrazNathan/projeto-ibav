@@ -99,7 +99,7 @@ const SignIn = () => {
 						<div className="DivInput">
 							<label>igreja:</label>
 							<S.Input
-								required='true'
+								required={true}
 								type="text"
 								onChange={(e: any) => setChurch(e.target.value)}
 							/>

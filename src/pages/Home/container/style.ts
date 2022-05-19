@@ -59,10 +59,6 @@ export const BtnSave = styled.button`
     padding: 10px 0;
     align-self: center;
     justify-content: center;
-    :hover {
-        background: #0033ce;
-        transition: background 0.5s;
-    }
 `;
 
 export const Container = styled.div`
@@ -111,9 +107,6 @@ export const Input = styled.input`
   background-color: transparent;
   border: 1px solid black;
   border-radius: calc(0.5 * var(--ntp-realbox-height));
-  color: var(--search-box-text);
-  font-family: inherit;
-  font-size: inherit;
   outline: none;
   width: 100%;
   position: relative;
@@ -121,18 +114,21 @@ export const Input = styled.input`
 `
 
 export const Formulary = styled.form`
+  display: flex;
+  flex-direction: column;    
+  label {
     display: flex;
-    flex-direction: column;    
-    label {
-            display: flex;
-            text-transform: uppercase;
-        }
-    .DivInput {
-        margin-right: 10px;
+    text-transform: uppercase;
+  }
+.DivInput {
+  margin-right: 10px;
+}
+.Select {
+  width: 50%;
+  @media(max-width: 480px) {
+    width: 20px;
     }
-    .Select {
-        width: 50%;
-    }    
+  }    
 `;
 
 export const ButtonSignUp = styled.button`
@@ -147,16 +143,13 @@ export const ButtonSignUp = styled.button`
 `;
 
 export const Select = styled.select`
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: calc(0.5 * var(--ntp-realbox-height));
-    color: var(--search-box-text);
-    font-family: inherit;
-    font-size: inherit;
-    outline: none;
-    width: 100%;
-    position: relative;
-    margin: 5px 0px;
-    `;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: calc(0.5 * var(--ntp-realbox-height));
+  outline: none;
+  width: 100%;
+  position: relative;
+  margin: 5px 0px;
+`
 
 export default DivImage;

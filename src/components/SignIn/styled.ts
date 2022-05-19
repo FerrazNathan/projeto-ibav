@@ -114,9 +114,11 @@ export const Select = styled.select`
     border-radius: 5px;
     padding: 1px;
     border: 1px solid #282c34;
+    overflow: scroll;
     @media(max-width:800px){
         height: 55%;
-        font-size: 14px;
+        font-size: 11px;
+        overflow: scroll;
     }
     &:focus{
     background-color: #e8f0fe;
