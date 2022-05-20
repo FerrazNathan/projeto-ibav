@@ -66,7 +66,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-  height: 100vh;
   @media(max-width: 800px){
     padding: 0px 0px;
     margin: 80px 0;

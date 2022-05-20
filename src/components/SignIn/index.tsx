@@ -35,7 +35,6 @@ const SignIn = () => {
 						alert("sua inscrição foi efetuada com sucesso")
 					)
 					}
-
 				})
 				.catch((error) => {
 					alert("Preencha todos os campos para concluir a sua inscrição")
@@ -76,13 +75,13 @@ const SignIn = () => {
 							<label>Telefone:</label>
 							<NumberFormat
 								customInput={Input}
-								// label="Telefone"
+								label="Telefone"
 								format="(##) #####-####"
 								mask="_"
 								minLength={10}
 								allowNegative={false}
-								// fullWidth
-								// variant="outlined"
+								fullWidth
+								variant="outlined"
 								id="phone"
 								onChange={(e: any) => setTel(e.target.value)}
 							/>
@@ -114,7 +113,7 @@ const SignIn = () => {
 						<div className="Select">
 							<label>cargo:</label>
 							<S.Select onChange={(e: any) => setOffice(e.target.value)}>
-								<option></option>
+								<option>Selecione</option>
 								<option value="Pastor">Pastor</option>
 								<option value="Dicipulador">Dicipulador</option>
 								<option value="Lider">Lider</option>

@@ -19,11 +19,16 @@ const Container = styled.header`
 
 export const LogoIbav = styled.img`
     height: auto;
-    width: 10%;
+    width: auto;
+    margin-top: 40PX;
     cursor: pointer;
+    @media(max-width: 800px){
+        width: auto;
+        margin-top: -20px;
+    }
 `;
 
-export const BtnLink = styled.button`
+export const BtnLink = styled.a`
     font-size: 16px;
     color: #FFF;
     background: none;
@@ -32,10 +37,12 @@ export const BtnLink = styled.button`
     font-weight: 600;
     cursor: pointer;
     margin: 0px 30px;
-
     @media(max-width:800px){
         margin: 10px 0;
-        font-size:18px;
+        font-size:16px;
+        text-decoration: underline;
+        text-align: center;
+        margin-bottom: 20px;
     }
 `;
 
@@ -43,6 +50,7 @@ export const DivBtn = styled.div`
     @media(max-width: 800px){
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
     }
 `;
 

@@ -9,13 +9,7 @@ const Body = () => {
 			<S.Container>
 				<S.ContainerLeft>
 					<S.DivImage>
-						{/* <S.Title Fsize={30} color="white">Convenção Radicais Livres</S.Title> */}
-						<S.LogoEvent src="../assets/conf_texto.png" />
-						{/* <S.Text>
-							<p>Ribeirão Pires</p>
-							<p>Rio Grande da Serra</p>
-							<p>Alto Tietê</p>
-						</S.Text> */}
+						<S.LogoEvent src="../assets/conf_texto.png" />						
 					</S.DivImage>
 				</S.ContainerLeft>
 				<S.ContainerRight>

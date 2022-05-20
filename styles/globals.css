@@ -6,9 +6,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     background-image: url(../../projeto-ibav/public/assets/bg.png);
     max-width: 1920px;
-    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: auto;
   }
 
 a {

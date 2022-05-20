@@ -5,10 +5,33 @@ interface Props {
   marginLeft?: any;
 }
 
+
+const DivGeneral = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 800px) {
+  }
+`
+
+export const Loading = styled.div`
+& img{
+  margin: 50px 0;
+  width: 100px;
+  height: 100px;
+}
+  @media (max-width: 800px) {
+    /* display: flex; */
+    margin: 190px;
+		margin-top: -100px;
+  }
+`
+
 export const Describe = styled.td<Props>`
   width: 20%;
   text-align: left;
-
+  margin-left: 20px;
   @media (max-width: 800px) {
     display: ${({ display }) => display && `${display}`};
     margin-left: ${({ marginLeft }) => marginLeft && `${marginLeft}`};
@@ -25,16 +48,17 @@ export const ListDescribe = styled.td<Props>`
   padding: auto 8px;
   width: 20%;
   font-size: 13px;
-
+  margin-left: 20px;
   @media (max-width: 800px) {
     display: ${({ display }) => display && `${display}`};
     width: 100%;
     text-align: center;
+		margin-left: -20px;
+		justify-content: space-between;
   }
 `;
 
 export const DivName = styled.th`
-  margin: 5px 10px;
   display: flex;
   font-weight: 500;
   text-transform: uppercase;
@@ -43,7 +67,6 @@ export const DivName = styled.th`
   color: white;
   margin: 0;
   justify-content: space-between;
-
   @media (max-width: 800px) {
     font-size: 15px;
   }
@@ -56,21 +79,35 @@ export const ModalSignUp = styled.div`
     justify-content: space-between; 
     padding: 8px 10px;
     width: 100%;
-
     @media(max-width:800px){
-        width: 100%;
-        padding: 8px 0px;
+      width: 100%;
+      padding: 30px 0px;
     }
 `;
 
+export const TextList = styled.h2`
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 4px;
+	margin-bottom: 20px;
+	@media (max-width: 768px) {
+		margin-bottom: 20px;
+	}
+`
+
 export const DivList = styled.table`
+  background: #000000;
   tr:nth-child(odd) {
-    background: rgb(27, 43, 74);
+    background: #292431;
   }
 
   @media (max-width: 800px) {
     .mediaMobile {
       display: none;
+			margin-bottom: 20px;
     }
   }
 `;
@@ -97,21 +134,5 @@ export const List = styled.tr`
   list-style-type: none;
 `;
 
-const DivGeneral = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: 800px) {
-  }
-
-  .Loading {
-    margin: 50px 0;
-    @media (max-width: 800px) {
-      display: flex;
-      margin: 190px;
-    }
-  }
-`;
 
 export default DivGeneral;

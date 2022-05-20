@@ -12,7 +12,7 @@ const Header = ({ about }: Props) => {
       <LogoIbav src='../assets/radicaisbco.png' onClick={() => (window.location.href = "/")}/>
       <DivBtn>
         <BtnLink onClick={() => (window.location.href = "/about")}>
-          Sobre a convenção Radicais Livres
+          Sobre a conferência Radicais Livres
         </BtnLink>
         <BtnLink onClick={() => (window.location.href = "/userlist")}>
           Lista de inscritos
