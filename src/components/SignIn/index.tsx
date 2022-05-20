@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as S from './styled'
-import {Input} from "./styled";
+import { Input } from "./styled";
 import NumberFormat from "react-number-format";
 import axios from "axios";
 
@@ -26,13 +26,20 @@ const SignIn = () => {
 				office,
 				status: Count.length > 300 ? 'lista-espera' : 'ok'
 			})
-			.then((response) => {
-				window.location.href = "/userlist";
-				alert("sua inscrição foi efetuada com sucesso");
-			})
-			.catch((error) => {
-				alert("Preencha todos os campos para concluir a sua inscrição")
-			})
+				.then((response) => {
+					window.location.href = "/userlist";
+					{
+						Count.length > 300 ? (
+							alert("Inscrições encerradas coloque seu nome na lista de espera")
+						) : (
+						alert("sua inscrição foi efetuada com sucesso")
+					)
+					}
+
+				})
+				.catch((error) => {
+					alert("Preencha todos os campos para concluir a sua inscrição")
+				})
 		}
 		catch (e) {
 			throw new Error("Algo deu errado na conexão");
@@ -40,13 +47,13 @@ const SignIn = () => {
 	}
 
 	useEffect(() => {
-    axios.get(url)
-		.then((res) => {
-      if (res.data) {
-        setData(Object.entries(res.data));
-      }
-    });
-  }, []);
+		axios.get(url)
+			.then((res) => {
+				if (res.data) {
+					setData(Object.entries(res.data));
+				}
+			});
+	}, []);
 
 	const Count = data.map((item: { name: any }[]) => item[1].name);
 
@@ -69,13 +76,13 @@ const SignIn = () => {
 							<label>Telefone:</label>
 							<NumberFormat
 								customInput={Input}
-								label="Telefone"
+								// label="Telefone"
 								format="(##) #####-####"
 								mask="_"
 								minLength={10}
 								allowNegative={false}
-								fullWidth
-								variant="outlined"
+								// fullWidth
+								// variant="outlined"
 								id="phone"
 								onChange={(e: any) => setTel(e.target.value)}
 							/>
@@ -106,7 +113,7 @@ const SignIn = () => {
 						</div>
 						<div className="Select">
 							<label>cargo:</label>
-							<S.Select  onChange={(e: any) => setOffice(e.target.value)}>
+							<S.Select onChange={(e: any) => setOffice(e.target.value)}>
 								<option></option>
 								<option value="Pastor">Pastor</option>
 								<option value="Dicipulador">Dicipulador</option>
