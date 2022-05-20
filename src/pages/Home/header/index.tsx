@@ -9,7 +9,7 @@ const Header = ({ about }: Props) => {
 
   return (
     <Container>
-      <LogoIbav src='../assets/radicais4.png' onClick={() => (window.location.href = "/")}/>
+      <LogoIbav src='../assets/logoRede.png' onClick={() => (window.location.href = "/")}/>
       <DivBtn>
         <BtnLink onClick={() => (window.location.href = "/about")}>
           Sobre a convenção Radicais Livres

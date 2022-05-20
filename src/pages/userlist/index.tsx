@@ -34,6 +34,8 @@ const UserList = (Data) => {
     }
   });
 
+  console.log(data);
+
   const Count = data.map((item: { name: any }[]) => item[1].name);
 
   return (
@@ -44,9 +46,16 @@ const UserList = (Data) => {
           <img className="Loading" src="../assets/loading-buffering.gif" />
         ) : (
           <>
-            <ListSign>
-              <h2>QUANTIDADE DE INSCRITOS: {Count.length}</h2>
-            </ListSign>
+            {Count.length <= 300 ? (
+              <ListSign>
+                <h2>QUANTIDADE DE INSCRITOS: {Count.length}</h2>
+              </ListSign>
+            ) : (
+              <ListSign>
+                <h2>Lista de espera: {Count.length}</h2>
+              </ListSign>
+            )
+            }
             <ModalSignUp>
               <DivList>
                 <DivName>
