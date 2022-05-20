@@ -3,6 +3,8 @@ import * as S from './styled'
 import { Input } from "./styled";
 import NumberFormat from "react-number-format";
 import axios from "axios";
+import InputMask from "react-input-mask";
+
 
 const SignIn = () => {
 	const [name, setName] = useState("");
@@ -32,8 +34,8 @@ const SignIn = () => {
 						Count.length > 300 ? (
 							alert("Inscrições encerradas seu nome foi colocado na lista de espera")
 						) : (
-						alert("sua inscrição foi efetuada com sucesso")
-					)
+							alert("sua inscrição foi efetuada com sucesso")
+						)
 					}
 				})
 				.catch((error) => {
@@ -73,18 +75,9 @@ const SignIn = () => {
 					<S.DivInput>
 						<div className="DivInput">
 							<label>Telefone:</label>
-							<NumberFormat
-								customInput={Input}
-								label="Telefone"
-								format="(##) #####-####"
-								mask="_"
-								minLength={10}
-								allowNegative={false}
-								fullWidth
-								variant="outlined"
-								id="phone"
-								onChange={(e: any) => setTel(e.target.value)}
-							/>
+							<S.Mask>
+								<InputMask mask="(99) 99999-9999" onChange={(e: any) => setTel(e.target.value)} />
+							</S.Mask>
 						</div>
 						<div className="DivControl">
 							<label>Cidade:</label>
@@ -113,7 +106,7 @@ const SignIn = () => {
 						<div className="Select">
 							<label>cargo:</label>
 							<S.Select onChange={(e: any) => setOffice(e.target.value)}>
-								<option>Selecione</option>
+								<option></option>
 								<option value="Pastor">Pastor</option>
 								<option value="Dicipulador">Dicipulador</option>
 								<option value="Lider">Lider</option>

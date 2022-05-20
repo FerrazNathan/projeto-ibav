@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 interface Props {
 	Fsize?: any;
 }
@@ -72,6 +71,29 @@ export const Input = styled.input`
     background-color: #e8f0fe;
     }
 `;
+
+export const Mask = styled.div`
+	& input {
+	background-color: transparent;
+    border: 1px solid #282c34;
+    border-radius: calc(0.5 * var(--ntp-realbox-height));
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    padding: 5px;
+    @media(max-width: 800px){
+        height: auto;
+        font-size: 25px;
+				width: 100%;
+    }
+    &:focus{
+    background-color: #e8f0fe;
+    }
+	}
+`
 
 export const Formulary = styled.form`
     display: flex;
