@@ -39,7 +39,7 @@ export const DivName = styled.th`
   font-weight: 500;
   text-transform: uppercase;
   font-size: 20px;
-  background: #d41616;
+  background: #4c1568;
   color: white;
   margin: 0;
   justify-content: space-between;
@@ -53,7 +53,7 @@ export const ModalSignUp = styled.div`
     height: auto;
     display: flex;
     flex-direction: column;
-    justify: content: space-between; 
+    justify-content: space-between; 
     padding: 8px 10px;
     width: 100%;
 
@@ -76,7 +76,7 @@ export const DivList = styled.table`
 `;
 
 export const ListSign = styled.div`
-  background: #d41616;
+  background: #4c1568;
   color: white;
   padding: 10px 10px;
   margin: 10px;

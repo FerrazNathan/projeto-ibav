@@ -4,11 +4,12 @@ interface Props {
 	Fsize?: any;
 }
 
-const DivImage = styled.div`
+export const DivImage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 8rem;
 `;
 
 export const InputValues = styled.input`
@@ -65,7 +66,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-
+  height: 100vh;
   @media(max-width: 800px){
     padding: 0px 0px;
     margin: 80px 0;
@@ -73,8 +74,17 @@ export const Container = styled.div`
 `
 
 export const LogoEvent = styled.img`
-  height: 62vh;
+  height: 45vh;
   width: 35vw;
+`
+
+export const Text = styled.div`
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  width: 34vw;
+  font-size: 24px;
+  margin-top: 1.4rem;
 `
 
 export const Title = styled.h1<Props>`

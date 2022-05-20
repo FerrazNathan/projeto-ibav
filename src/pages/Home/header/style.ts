@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Container = styled.header`
-    background: white;
+    /* background: white; */
     height: 125px;
     width: 100%;
     display: flex;
@@ -19,13 +19,13 @@ const Container = styled.header`
 
 export const LogoIbav = styled.img`
     height: auto;
-    width: 125px;
+    width: 10%;
     cursor: pointer;
 `;
 
 export const BtnLink = styled.button`
     font-size: 16px;
-    color: #0d2c7f;
+    color: #FFF;
     background: none;
     border: none;
     text-transform: uppercase;
@@ -50,7 +50,7 @@ export const BtnSign = styled.button`
     font-size: 16px;
     color: white;
     border: none;
-    background: #d51717;
+    background: #4c1568;
     font-weight: bold;
     text-transform: uppercase;
     padding: 12px 12px;
