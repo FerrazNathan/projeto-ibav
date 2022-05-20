@@ -1,22 +1,27 @@
 import React from 'react'
-import DivImage, { LogoEvent, Container, ContainerLeft, Title, ContainerRight } from './style'
+import * as S from './style'
 import SignIn from '../../../components/SignIn'
-const Body = () => {
 
+const Body = () => {
 
 	return (
 		<>
-			<Container>
-				<ContainerLeft>
-					<DivImage>
-						<Title Fsize={30} color="white">Convenção Radicais Livres</Title>
-						<LogoEvent src="../assets/conferencia3.png" />
-					</DivImage>
-				</ContainerLeft>
-				<ContainerRight>
+			<S.Container>
+				<S.ContainerLeft>
+					<S.DivImage>
+						{/* <S.Title Fsize={30} color="white">Convenção Radicais Livres</S.Title> */}
+						<S.LogoEvent src="../assets/conf_texto.png" />
+						{/* <S.Text>
+							<p>Ribeirão Pires</p>
+							<p>Rio Grande da Serra</p>
+							<p>Alto Tietê</p>
+						</S.Text> */}
+					</S.DivImage>
+				</S.ContainerLeft>
+				<S.ContainerRight>
 					<SignIn />
-				</ContainerRight>
-			</Container>
+				</S.ContainerRight>
+			</S.Container>
 		</>
 	)
 }

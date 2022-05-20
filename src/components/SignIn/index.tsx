@@ -30,7 +30,7 @@ const SignIn = () => {
 					window.location.href = "/userlist";
 					{
 						Count.length > 300 ? (
-							alert("Inscrições encerradas coloque seu nome na lista de espera")
+							alert("Inscrições encerradas seu nome foi colocado na lista de espera")
 						) : (
 						alert("sua inscrição foi efetuada com sucesso")
 					)

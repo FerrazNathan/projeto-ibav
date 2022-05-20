@@ -29,15 +29,15 @@ export const Title = styled.h1<Props>`
     text-transform: uppercase;
     text-align: center;
     strong {
-        color:#c60401;
+        color: #4c1568;
     }
 `;
 
 export const Text = styled.p<Props>`
     text-align: center;
     font-size: 20px;
+    color: #4c1568;
 `
-
 
 export const DivInput = styled.div`
     display: flex;
@@ -89,7 +89,7 @@ export const ButtonSignUp = styled.button`
     font-size: 20px;
     color: white;
     border: none;
-    background: #d51717;
+    background: #4c1568;
     text-transform: uppercase;
     padding: 12px 0px;
     margin-top: 10px;

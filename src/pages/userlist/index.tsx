@@ -34,9 +34,15 @@ const UserList = (Data) => {
     }
   });
 
-  console.log(data);
-
   const Count = data.map((item: { name: any }[]) => item[1].name);
+
+  const listaDeEspera = data.filter((item: any) => {
+    return item[1].status === 'lista-espera'
+  })
+
+  const listaDeInscritos = data.filter((item: any) => {
+    return item[1].status === 'ok'
+  })
 
   return (
     <>
@@ -56,6 +62,7 @@ const UserList = (Data) => {
               </ListSign>
             )
             }
+            <h2>Lista de inscritos</h2>
             <ModalSignUp>
               <DivList>
                 <DivName>
@@ -66,7 +73,7 @@ const UserList = (Data) => {
                   <Describe>Igreja</Describe>
                   <Describe display="none">Cidade</Describe>
                 </DivName>
-                {data.map((item: any) => {
+                {listaDeInscritos.map((item: any) => {
                   return (
                     <List>
                       <ListDescribe>{item[1].name}</ListDescribe>
@@ -82,8 +89,41 @@ const UserList = (Data) => {
                     </List>
                   );
                 })}
+
               </DivList>
             </ModalSignUp>
+            {listaDeEspera.length > 0 &&
+              <ModalSignUp>
+                <h2>Lista de Espera</h2>
+                <DivList>
+                  <DivName>
+                    <Describe marginLeft="25px">Nome</Describe>
+                    <Describe>Telefone</Describe>
+                    <Describe display="none">Cargo</Describe>
+                    <Describe display="none">Pastor</Describe>
+                    <Describe>Igreja</Describe>
+                    <Describe display="none">Cidade</Describe>
+                  </DivName>
+                  {listaDeEspera?.map((item: any) => {
+                    return (
+                      <List>
+                        <ListDescribe>{item[1].name}</ListDescribe>
+                        <ListDescribe>{item[1].tel}</ListDescribe>
+                        <ListDescribe display="none">
+                          {item[1].office}
+                        </ListDescribe>
+                        <ListDescribe display="none">
+                          {item[1].sheperd}
+                        </ListDescribe>
+                        <ListDescribe>{item[1].church}</ListDescribe>
+                        <ListDescribe display="none">{item[1].city}</ListDescribe>
+                      </List>
+                    );
+                  })}
+
+                </DivList>
+              </ModalSignUp>
+            }
           </>
         )}
       </DivGeneral>
