@@ -22,17 +22,17 @@ const About = () => {
 						</div>
 					</DivInfo>
 					<DivInfo>
-						<BiTime className="Icon" />
+						<BiTime className="Icon"/>
 						<div>
 							<h1>horário</h1>
 							<h2>09:00 ás 22:00</h2>
 						</div>
 					</DivInfo>
 					<DivInfo>
-						<VscLocation className="Icon" />
+						<VscLocation className="Icon"/>
 						<div>
 							<h1>local</h1>
-							<h2>ibav Ribeirão Pires</h2>
+							<h2> A Confirmar</h2>
 						</div>
 					</DivInfo>
 				</DivGeneral>

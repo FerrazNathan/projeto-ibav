@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface Props {
-    Fsize?: any;
+	Fsize?: any;
 }
 
 export const ContainerRight = styled.div`
@@ -17,10 +17,12 @@ export const ModalSign = styled.div`
     display: flex;
     flex-direction: column;
     background: white;
-    padding: 30px 30px;
+    padding: 20px 20px;
 
     @media(max-width: 800px) {
-        padding: 30px 9px;
+      padding: 30px 9px;
+      margin-top: 285px;
+    	margin-bottom: 50px;
     }
 `;
 
@@ -41,6 +43,11 @@ export const Text = styled.p<Props>`
 
 export const DivInput = styled.div`
     display: flex;
+		@media(max-width: 800px){
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
 `;
 
 export const Input = styled.input`
@@ -55,10 +62,11 @@ export const Input = styled.input`
     position: relative;
     margin: 5px 0px;
     border-radius: 5px;
-    padding: 2px;
+    padding: 5px;
     @media(max-width: 800px){
         height: auto;
         font-size: 25px;
+				width: 100%;
     }
     &:focus{
     background-color: #e8f0fe;
@@ -69,19 +77,31 @@ export const Formulary = styled.form`
     display: flex;
     flex-direction: column;
     margin: 25px 0;    
-    label {
-            display: flex;
-            text-transform: uppercase;
-        }
+    & label {
+      display: flex;
+      text-transform: uppercase;
+    }		
+			@media(max-width:800px) {
+				display: flex;
+				flex-direction: column;
+			}
     .DivInput {
-        margin-right: 10px;
+      margin-right: 10px;
+			@media(max-width: 800px) {
+				width: 100%;
+			}
     }
     .Select {
-        width: 50%;
+      width: 50%;
+			@media(max-width: 800px) {
+				width: 100%;
+				height: 11vh;
+				overflow: scroll;
+			}
     }
     
     div {
-        margin: 5px 0;
+      margin: 5px 0;
     }
 `;
 
@@ -99,6 +119,9 @@ export const ButtonSignUp = styled.button`
     display: flex;
     justify-content: center;
     align-self: center;
+		@media (max-width: 800px) {
+			width: 200px;
+		}
 `;
 
 export const Select = styled.select`
@@ -112,13 +135,13 @@ export const Select = styled.select`
     position: relative;
     margin: 5px 0px;
     border-radius: 5px;
-    padding: 1px;
+    padding: 5px;
     border: 1px solid #282c34;
     overflow: scroll;
     @media(max-width:800px){
-        height: 55%;
-        font-size: 11px;
-        overflow: scroll;
+      height: 60%;
+      font-size: 16px;
+      overflow: scroll;
     }
     &:focus{
     background-color: #e8f0fe;

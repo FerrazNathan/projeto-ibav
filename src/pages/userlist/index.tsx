@@ -6,8 +6,10 @@ import DivGeneral, {
   List,
   DivList,
   ListSign,
+  Loading,
   Describe,
   ListDescribe,
+  TextList
 } from "./userlist.styled";
 import Header from "../Home/header";
 
@@ -35,13 +37,13 @@ const UserList = (Data) => {
   });
 
   const Count = data.map((item: { name: any }[]) => item[1].name);
+  
+  const listaDeInscritos = data.filter((item: any) => {
+    return item[1].status === 'ok'
+  })
 
   const listaDeEspera = data.filter((item: any) => {
     return item[1].status === 'lista-espera'
-  })
-
-  const listaDeInscritos = data.filter((item: any) => {
-    return item[1].status === 'ok'
   })
 
   return (
@@ -49,21 +51,13 @@ const UserList = (Data) => {
       <Header about={true} />
       <DivGeneral>
         {loading ? (
-          <img className="Loading" src="../assets/loading-buffering.gif" />
+          <Loading>
+            <img src="../assets/loading-gif.gif" />
+          </Loading>
         ) : (
           <>
-            {Count.length <= 300 ? (
-              <ListSign>
-                <h2>QUANTIDADE DE INSCRITOS: {Count.length}</h2>
-              </ListSign>
-            ) : (
-              <ListSign>
-                <h2>Lista de espera: {Count.length}</h2>
-              </ListSign>
-            )
-            }
-            <h2>Lista de inscritos</h2>
             <ModalSignUp>
+              <TextList>Lista de inscritos ( {listaDeInscritos.length} )</TextList>
               <DivList>
                 <DivName>
                   <Describe marginLeft="25px">Nome</Describe>
@@ -94,10 +88,10 @@ const UserList = (Data) => {
             </ModalSignUp>
             {listaDeEspera.length > 0 &&
               <ModalSignUp>
-                <h2>Lista de Espera</h2>
+                <TextList>Lista de Espera ( {listaDeEspera.length} )</TextList>
                 <DivList>
                   <DivName>
-                    <Describe marginLeft="25px">Nome</Describe>
+                    <Describe marginLeft="45px">Nome</Describe>
                     <Describe>Telefone</Describe>
                     <Describe display="none">Cargo</Describe>
                     <Describe display="none">Pastor</Describe>
