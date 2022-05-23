@@ -17,7 +17,7 @@ const UserList = (Data) => {
   const [loading, setLoading] = useState<any>(true);
   const [data, setData] = useState<any>([]);
 
-  const url = `https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json`;
+  const url = `https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json`
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -60,7 +60,7 @@ const UserList = (Data) => {
               <TextList>Lista de inscritos ( {listaDeInscritos.length} )</TextList>
               <DivList>
                 <DivName>
-                  <Describe marginLeft="25px">Nome</Describe>
+                  <Describe>Nome</Describe>
                   <Describe>Telefone</Describe>
                   <Describe display="none">Cargo</Describe>
                   <Describe display="none">Pastor</Describe>
@@ -70,7 +70,7 @@ const UserList = (Data) => {
                 {listaDeInscritos.map((item: any) => {
                   return (
                     <List>
-                      <ListDescribe>{item[1].name}</ListDescribe>
+                      <ListDescribe>{item[1].name}{item[1].surname}</ListDescribe>
                       <ListDescribe>{item[1].tel}</ListDescribe>
                       <ListDescribe display="none">
                         {item[1].office}
@@ -91,7 +91,7 @@ const UserList = (Data) => {
                 <TextList>Lista de Espera ( {listaDeEspera.length} )</TextList>
                 <DivList>
                   <DivName>
-                    <Describe marginLeft="45px">Nome</Describe>
+                    <Describe>Nome</Describe>
                     <Describe>Telefone</Describe>
                     <Describe display="none">Cargo</Describe>
                     <Describe display="none">Pastor</Describe>

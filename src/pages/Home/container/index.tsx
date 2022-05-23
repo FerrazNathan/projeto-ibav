@@ -9,7 +9,7 @@ const Body = () => {
 			<S.Container>
 				<S.ContainerLeft>
 					<S.DivImage>
-						<S.LogoEvent src="../assets/conf_texto.png" />						
+						<S.LogoEvent src="../assets/convencao.png" />						
 					</S.DivImage>
 				</S.ContainerLeft>
 				<S.ContainerRight>

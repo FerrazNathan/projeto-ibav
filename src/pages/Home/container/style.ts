@@ -25,7 +25,6 @@ export const ContainerRight = styled.div`
     display: flex;
     align-items: center;
 		margin-right: 5%;
-    height: 75vh;
 `;
 
 export const ContainerLeft = styled.div`
@@ -68,7 +67,6 @@ export const Container = styled.div`
   padding: 20px 60px;
   @media(max-width: 800px){
     padding: 0px 0px;
-    margin: 80px 0;
   }
 `
 

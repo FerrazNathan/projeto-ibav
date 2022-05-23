@@ -12,6 +12,7 @@ const DivGeneral = styled.div`
   align-items: center;
 
   @media (max-width: 800px) {
+		padding: 0 5px;
   }
 `
 
@@ -22,7 +23,6 @@ export const Loading = styled.div`
   height: 100px;
 }
   @media (max-width: 800px) {
-    /* display: flex; */
     margin: 190px;
 		margin-top: -100px;
   }
@@ -47,13 +47,13 @@ export const ListDescribe = styled.td<Props>`
   padding-bottom: 3px;
   padding: auto 8px;
   width: 20%;
-  font-size: 13px;
+  font-size: 12px;
   margin-left: 20px;
   @media (max-width: 800px) {
     display: ${({ display }) => display && `${display}`};
     width: 100%;
     text-align: center;
-		margin-left: -20px;
+		margin-left: 2px;
 		justify-content: space-between;
   }
 `;
@@ -81,7 +81,7 @@ export const ModalSignUp = styled.div`
     width: 100%;
     @media(max-width:800px){
       width: 100%;
-      padding: 30px 0px;
+      padding: 30px 0px			
     }
 `;
 

@@ -9,16 +9,16 @@ const Header = ({ about }: Props) => {
 
   return (
     <Container>
-      <LogoIbav src='../assets/radicaisbco.png' onClick={() => (window.location.href = "/")}/>
+      <a href="/"><LogoIbav src='../assets/radicaisbco.png'/></a>
       <DivBtn>
-        <BtnLink onClick={() => (window.location.href = "/about")}>
-          Sobre a conferência Radicais Livres
+        <BtnLink href= "/about.html">
+          Sobre a convenção Radicais Livres
         </BtnLink>
-        <BtnLink onClick={() => (window.location.href = "/userlist")}>
+        <BtnLink href="/userlist.html">
           Lista de inscritos
         </BtnLink>
         {about == true && (
-          <BtnSign onClick={() => (window.location.href = "/")}>
+          <BtnSign onClick={ () => window.location.href ='/'}>
             Inscreva-se
           </BtnSign>
         )}
