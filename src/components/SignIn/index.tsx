@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import * as S from './styled'
 import { Input } from "./styled";
-import NumberFormat from "react-number-format";
 import axios from "axios";
 import InputMask from "react-input-mask";
 
 
 const SignIn = () => {
-	const [name, setName] = useState("");
-	const [tel, setTel] = useState("");
-	const [church, setChurch] = useState("");
-	const [sheperd, setSheperd] = useState("");
-	const [city, setCity] = useState("");
-	const [office, setOffice] = useState("");
-	const [data, setData] = useState<any>([]);
+	const [name, setName] = useState("")
+	const [surname, setSurname] = useState("")
+	const [tel, setTel] = useState("")
+	const [church, setChurch] = useState("")
+	const [sheperd, setSheperd] = useState("")
+	const [city, setCity] = useState("")
+	const [office, setOffice] = useState("")
+	const [data, setData] = useState<any>([])
 
-	const url = "https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json";
+	const url = "https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json"
 
 	const saveData = () => {
 		try {
 			axios.post(url, {
 				name,
+				surname,
 				tel,
 				church,
 				sheperd,
@@ -29,7 +30,7 @@ const SignIn = () => {
 				status: Count.length > 300 ? 'lista-espera' : 'ok'
 			})
 				.then((response) => {
-					window.location.href = "/userlist";
+					window.location.href = "/userlist.html";
 					{
 						Count.length > 300 ? (
 							alert("Inscrições encerradas seu nome foi colocado na lista de espera")
@@ -72,11 +73,15 @@ const SignIn = () => {
 						<label>Nome:</label>
 						<S.Input type="text" onChange={(e: any) => setName(e.target.value)} />
 					</div>
+					<div className="DivControl">
+						<label>Sobrenome:</label>
+						<S.Input type="text" onChange={(e: any) => setSurname(e.target.value)} />
+					</div>
 					<S.DivInput>
 						<div className="DivInput">
 							<label>Telefone:</label>
 							<S.Mask>
-								<InputMask mask="(99) 99999-9999" onChange={(e: any) => setTel(e.target.value)} />
+								<InputMask mask="(99)99999-9999" onChange={(e: any) => setTel(e.target.value)} />
 							</S.Mask>
 						</div>
 						<div className="DivControl">
@@ -108,8 +113,8 @@ const SignIn = () => {
 							<S.Select onChange={(e: any) => setOffice(e.target.value)}>
 								<option></option>
 								<option value="Pastor">Pastor</option>
-								<option value="Dicipulador">Dicipulador</option>
-								<option value="Lider">Lider</option>
+								<option value="Dicipulador">Discipulador</option>
+								<option value="Lider">Líder</option>
 								<option value="Membro de celula">Membro de célula</option>
 							</S.Select>
 						</div>

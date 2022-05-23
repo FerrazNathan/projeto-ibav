@@ -20,7 +20,6 @@ export const ModalSign = styled.div`
 
     @media(max-width: 800px) {
       padding: 30px 9px;
-      margin-top: 285px;
     	margin-bottom: 50px;
     }
 `;
