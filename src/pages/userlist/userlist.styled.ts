@@ -66,6 +66,7 @@ export const DivName = styled.th`
   background: #4c1568;
   color: white;
   margin: 0;
+  padding-right: 15px;
   justify-content: space-between;
   @media (max-width: 800px) {
     font-size: 15px;

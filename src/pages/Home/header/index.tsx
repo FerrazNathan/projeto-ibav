@@ -1,6 +1,5 @@
 import React from "react";
 import Container, { LogoIbav, BtnLink, DivBtn, BtnSign } from "./style";
-
 interface Props {
   about?: boolean;
 }

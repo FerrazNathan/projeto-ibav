@@ -33,9 +33,9 @@ export const Title = styled.h1<Props>`
     }
 `;
 
-export const Text = styled.p<Props>`
+export const Text = styled.h2<Props>`
     text-align: center;
-    font-size: 20px;
+    font-size: 24px;
     color: #4c1568;
 `
 
@@ -47,6 +47,11 @@ export const DivInput = styled.div`
 			flex-direction: column;
 		}
 `;
+
+export const BoxInputText = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const Input = styled.input`
     background-color: transparent;
@@ -70,6 +75,24 @@ export const Input = styled.input`
     background-color: #e8f0fe;
     }
 `;
+
+export const DivTextEmail = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px dotted #FF0000;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+`
+
+export const TextEmail = styled.span`
+  font-size: 13px;
+  font-weight: 500;
+  color: #FF0000;
+  padding: 5px;
+  text-transform: uppercase;
+`
 
 export const Mask = styled.div`
 	& input {
@@ -126,6 +149,7 @@ export const Formulary = styled.form`
     }
 `;
 
+
 export const ButtonSignUp = styled.button`
     font-size: 20px;
     color: white;
@@ -156,7 +180,7 @@ export const Select = styled.select`
     position: relative;
     margin: 5px 0px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 4px;
     border: 1px solid #282c34;
     overflow: scroll;
     @media(max-width:800px){

@@ -32,7 +32,8 @@ const About = () => {
 						<VscLocation className="Icon"/>
 						<div>
 							<h1>local</h1>
-							<h2> A Confirmar</h2>
+							<h2>Ibav Ribeirão Pires</h2>
+							<h2>Sujeito a alteração</h2>
 						</div>
 					</DivInfo>
 				</DivGeneral>

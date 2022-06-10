@@ -11,13 +11,16 @@ const SignIn = () => {
 	const [tel, setTel] = useState("")
 	const [church, setChurch] = useState("")
 	const [sheperd, setSheperd] = useState("")
+	const [email, setEmail] = useState("")
 	const [city, setCity] = useState("")
 	const [office, setOffice] = useState("")
 	const [data, setData] = useState<any>([])
+	const [whatLote, setWhatLote] = useState("")
 
 	const url = "https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json"
 
 	const saveData = () => {
+
 		try {
 			axios.post(url, {
 				name,
@@ -27,16 +30,21 @@ const SignIn = () => {
 				sheperd,
 				city,
 				office,
-				status: Count.length > 300 ? 'lista-espera' : 'ok'
+				email,
+				status: 'ok'
 			})
-				.then((response) => {
-					window.location.href = "/userlist.html";
+				.then(() => {
+					if (whatLote === '1° Lote R$ 40,00') {
+						window.location.href = 'https://mpago.la/2CKxkc8';
+					}
+					else if (whatLote === '2° Lote R$ 50,00') {
+						window.location.href = 'https://mpago.la/2NmnMNX';
+					}
+					else if (whatLote === '3° Lote R$ 60,00') {
+						window.location.href = 'https://mpago.la/2CYCPQ2';
+					}
 					{
-						Count.length > 300 ? (
-							alert("Inscrições encerradas seu nome foi colocado na lista de espera")
-						) : (
-							alert("sua inscrição foi efetuada com sucesso")
-						)
+						alert("Sua inscrição será concluída após a confirmação do pagamento")
 					}
 				})
 				.catch((error) => {
@@ -48,6 +56,11 @@ const SignIn = () => {
 		}
 	}
 
+	const firstLote = new Date('June 26, 2022 23:59:59')
+	const secondLote = new Date('July 17, 2022 23:59:59')
+	const thirdLote = new Date('July 30, 2022 23:59:59')
+	const today = new Date()
+
 	useEffect(() => {
 		axios.get(url)
 			.then((res) => {
@@ -55,6 +68,18 @@ const SignIn = () => {
 					setData(Object.entries(res.data));
 				}
 			});
+		if (firstLote >= today) {
+			setWhatLote('1° Lote R$ 40,00')
+		}
+		else if (secondLote >= today) {
+			setWhatLote('2° Lote R$ 50,00')
+		}
+		else if (thirdLote >= today) {
+			setWhatLote('3° Lote R$ 60,00')
+		}
+		else {
+			setWhatLote('Inscrições encerradas')
+		}
 	}, []);
 
 	const Count = data.map((item: { name: any }[]) => item[1].name);
@@ -66,7 +91,7 @@ const SignIn = () => {
 					Faça sua <strong>inscrição</strong> agora
 				</S.Title>
 				<S.Text>
-					Valor: R$ 40,00
+					{whatLote}
 				</S.Text>
 				<S.Formulary>
 					<div className="DivControl">
@@ -76,6 +101,16 @@ const SignIn = () => {
 					<div className="DivControl">
 						<label>Sobrenome:</label>
 						<S.Input type="text" onChange={(e: any) => setSurname(e.target.value)} />
+					</div>
+					<div className="DivControl">
+						<label>Email:</label>
+						<S.BoxInputText>
+							<S.Input type="email" onChange={(e: any) => setEmail(e.target.value)} required />
+						</S.BoxInputText>
+						<S.DivTextEmail>
+							<S.TextEmail>É extremamente importante o mesmo email que será usado no ato do </S.TextEmail>
+							<S.TextEmail>pagamento para que seu pagamento seja confirmado</S.TextEmail>
+						</S.DivTextEmail>
 					</div>
 					<S.DivInput>
 						<div className="DivInput">
@@ -111,9 +146,9 @@ const SignIn = () => {
 						<div className="Select">
 							<label>cargo:</label>
 							<S.Select onChange={(e: any) => setOffice(e.target.value)}>
-								<option></option>
+								<option>Selecione</option>
 								<option value="Pastor">Pastor</option>
-								<option value="Dicipulador">Discipulador</option>
+								<option value="Discipulador">Discipulador</option>
 								<option value="Lider">Líder</option>
 								<option value="Membro de celula">Membro de célula</option>
 							</S.Select>
@@ -121,11 +156,11 @@ const SignIn = () => {
 					</S.DivInput>
 				</S.Formulary>
 				<S.ButtonSignUp
-					onClick={() =>
+					onClick={() => {
 						name && tel && church && sheperd && office && city
 							? saveData()
-							: alert("preencha todos os campos")
-					}
+							: alert("Preencha todos os campos para concluir a sua inscrição")
+					}}
 				>
 					Inscreva-se
 				</S.ButtonSignUp>
@@ -137,4 +172,7 @@ const SignIn = () => {
 export default SignIn;
 
 
-// onClick={() => { saveData() }}
+// 2 lote https://mpago.la/2NmnMNX
+
+// 3 lote https://mpago.la/2CYCPQ2
+
