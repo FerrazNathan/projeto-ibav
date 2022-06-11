@@ -5,7 +5,8 @@ import DivGeneral, {
   DivName,
   List,
   DivList,
-  ListSign,
+  TextInformation,
+  DivTextInformation,
   Loading,
   Describe,
   ListDescribe,
@@ -31,7 +32,7 @@ const UserList = (Data) => {
     });
   }, [])
 
-  const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres'
+  const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022'
   const encoded = encodeURI(uri)
 
   useEffect(() => {
@@ -54,26 +55,18 @@ const UserList = (Data) => {
       return ''
     })
 
-    const filtrado = arrayEmailsAproved && arrayEmailsAproved.filter(item =>{
+    const filtrado = arrayEmailsAproved && arrayEmailsAproved.filter(item => {
       return item !== ''
     })
 
     const valid = dataPayment && dataPayment.map(item => {
-        return item.payer.email
+      return item.payer.email
     })
 
     setValidator(filtrado)
     setListValid(valid)
   }, [dataPayment])
 
-
-  data.sort(function (a, b) {
-    if (a[1].name < b[1].name) {
-      return -1;
-    } else {
-      return true;
-    }
-  });
 
   const Count = data.map((item: { name: any }[]) => item[1].name);
 
@@ -84,6 +77,15 @@ const UserList = (Data) => {
   const listaDeEspera = data.filter((item: any) => {
     return item[1].status === 'lista-espera'
   })
+
+
+  listaDeInscritos?.sort(function (a, b) {
+    if (a[1].name < b[1].name) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 
   return (
     <>
@@ -96,7 +98,10 @@ const UserList = (Data) => {
         ) : (
           <>
             <ModalSignUp>
-              <TextList>Lista de inscritos ( {validator && validator.length} )</TextList>
+              <DivTextInformation>
+                <TextList>Lista de inscritos ( {validator && validator.length} )</TextList>
+                <TextInformation>Para pagamentos com boleto, espere 3 dias para a confirmação</TextInformation>
+              </DivTextInformation>
               <DivList>
                 <DivName>
                   <Describe>Nome</Describe>
@@ -108,31 +113,31 @@ const UserList = (Data) => {
                   <Describe>Pagamento</Describe>
                 </DivName>
                 {listaDeInscritos.map((item: any) => {
-                  
+
                   return (
                     <>
-                    {
-                      listValid && listValid.includes(item[1].email) && 
-                    <List>
-                      <ListDescribe>{item[1].name} {item[1].surname}</ListDescribe>
-                      <ListDescribe>{item[1].tel}</ListDescribe>
-                      <ListDescribe display="none">
-                        {item[1].office}
-                      </ListDescribe>
-                      <ListDescribe display="none">
-                        {item[1].sheperd}
-                      </ListDescribe>
-                      <ListDescribe display="none">{item[1].church}</ListDescribe>
-                      <ListDescribe display="none">{item[1].city}</ListDescribe>
                       {
-                        validator && validator.includes(item[1].email.toLowerCase()) ? (
-                          <ListDescribe style={{ color: '#15F904', fontWeight: 'bold' }}>Pagamento Aprovado</ListDescribe>
-                        ) : (
-                          <ListDescribe style={{ color: '#FF69B4' }}>Aguardando Aprovação</ListDescribe>
-                        )
+                        listValid && listValid.includes(item[1].email) &&
+                        <List>
+                          <ListDescribe>{item[1].name} {item[1].surname}</ListDescribe>
+                          <ListDescribe>{item[1].tel}</ListDescribe>
+                          <ListDescribe display="none">
+                            {item[1].office}
+                          </ListDescribe>
+                          <ListDescribe display="none">
+                            {item[1].sheperd}
+                          </ListDescribe>
+                          <ListDescribe display="none">{item[1].church}</ListDescribe>
+                          <ListDescribe display="none">{item[1].city}</ListDescribe>
+                          {
+                            validator && validator.includes(item[1].email.toLowerCase()) ? (
+                              <ListDescribe style={{ color: '#15F904', fontWeight: 'bold' }}>Pagamento Aprovado</ListDescribe>
+                            ) : (
+                              <ListDescribe style={{ color: '#FF69B4' }}>Aguardando Aprovação</ListDescribe>
+                            )
+                          }
+                        </List>
                       }
-                    </List>
-                    }
                     </>
                   );
                 })}

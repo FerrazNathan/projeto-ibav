@@ -27,6 +27,33 @@ export const Loading = styled.div`
 		margin-top: -100px;
   }
 `
+export const DivTextInformation = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  width: 87%;  
+  margin-left: 200px;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+  }
+`
+
+export const TextInformation = styled.p`
+  color: #FF8C00;
+  border: 1px dashed;
+  font-size: 14px;
+  padding: 10px;
+  margin-left: 400px;
+  font-weight: 500;
+  border-radius:10px;
+  @media(max-width: 768px) {
+    margin-left:0
+  }
+  `
 
 export const Describe = styled.td<Props>`
   width: 20%;
