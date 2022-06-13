@@ -135,7 +135,7 @@ const SignIn = () => {
 
 	return (
 		<S.ContainerRight>
-
+			
 			{loading ? (
 				<S.Loading>
 					<img src="../assets/loading-gif.gif" />
@@ -165,7 +165,7 @@ const SignIn = () => {
 										<S.Input type="email" onChange={(e: any) => setEmail(e.target.value)} required />
 									</S.BoxInputText>
 									<S.DivTextEmail>
-										<S.TextEmail>É extremamente importante o mesmo email que será usado no ato do </S.TextEmail>
+										<S.TextEmail>É extremamente importante usar o mesmo email que será usado no ato do </S.TextEmail>
 										<S.TextEmail>pagamento para que seu pagamento seja confirmado</S.TextEmail>
 									</S.DivTextEmail>
 								</div>

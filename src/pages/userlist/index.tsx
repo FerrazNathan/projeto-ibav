@@ -81,11 +81,18 @@ const UserList = (Data) => {
 
   listaDeInscritos?.sort(function (a, b) {
     if (a[1].name < b[1].name) {
-      return 1;
-    } else {
       return -1;
+    } else {
+      return 1;
     }
   });
+
+
+
+
+  const mock = listaDeInscritos.filter(function (a) {
+    return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true);
+  }, Object.create(null))
 
   return (
     <>
@@ -112,7 +119,7 @@ const UserList = (Data) => {
                   <Describe display="none">Cidade</Describe>
                   <Describe>Pagamento</Describe>
                 </DivName>
-                {listaDeInscritos.map((item: any) => {
+                {mock.map((item: any) => {
 
                   return (
                     <>
