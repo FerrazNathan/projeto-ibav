@@ -104,7 +104,6 @@ const SignIn = () => {
 		setListValid(valid)
 	}, [dataPayment])
 
-	console.log(validator, 'validator')
 	const firstLote = new Date('June 26, 2022 23:59:59')
 	const secondLote = new Date('July 17, 2022 23:59:59')
 	const thirdLote = new Date('July 30, 2022 23:59:59')
@@ -135,7 +134,7 @@ const SignIn = () => {
 
 	return (
 		<S.ContainerRight>
-			
+
 			{loading ? (
 				<S.Loading>
 					<img src="../assets/loading-gif.gif" />
