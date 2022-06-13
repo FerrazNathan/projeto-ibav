@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 interface Props {
-	Fsize?: any;
+  Fsize?: any;
 }
 
 export const ContainerRight = styled.div`
@@ -192,3 +192,30 @@ export const Select = styled.select`
     background-color: #e8f0fe;
     }
     `;
+
+  export const TextEnd = styled.span`
+    text-align: center;
+    font-size: 20px;
+    color: #4c1568;
+    margin-top: -15px;
+    font-weight: 600;
+  `
+
+  export const TextFinal = styled.h4`
+    color: #FF0000;
+    font-weight: 600;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+  `
+export const Loading = styled.div`
+& img{
+  margin: 50px 0;
+  width: 100px;
+  height: 100px;
+}
+  @media (max-width: 800px) {
+    margin: 190px;
+		margin-top: -100px;
+  }
+`
