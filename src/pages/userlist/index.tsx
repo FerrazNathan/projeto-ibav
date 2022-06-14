@@ -105,7 +105,7 @@ const UserList = (Data) => {
             <ModalSignUp>
               <DivTextInformation>
                 <TextList>Lista de inscritos ( {validator && validator.length} )</TextList>
-                <TextInformation>Para pagamentos com boleto, espere 3 dias para a confirmação</TextInformation>
+                <TextInformation>Para pagamentos em boleto, espere até 3 dias úteis para a confirmação do pagamento</TextInformation>
               </DivTextInformation>
               <DivList>
                 <DivName>
