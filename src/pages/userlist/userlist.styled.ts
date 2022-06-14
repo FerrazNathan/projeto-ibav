@@ -122,10 +122,10 @@ export const TextList = styled.h2`
   text-align: center;
   text-transform: uppercase;
   margin: 0;
-  margin-top: 4px;
-	margin-bottom: 20px;
+  width: 44%;
 	@media (max-width: 768px) {
 		margin-bottom: 20px;
+    width: 100%;
 	}
 `
 
