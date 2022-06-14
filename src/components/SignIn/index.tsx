@@ -133,101 +133,107 @@ const SignIn = () => {
 	const Count = data.map((item: { name: any }[]) => item[1].name);
 
 	return (
-		<S.ContainerRight>
-
-			{loading ? (
-				<S.Loading>
-					<img src="../assets/loading-gif.gif" />
-				</S.Loading>
-			) : (
-				<S.ModalSign>
-					{qtdMax > validator?.length ?
+		<>
+			{
+				<S.ContainerRight>
+					{validator ?
 						<>
-							<S.Title Fsize={30}>
-								Faça sua <strong>inscrição</strong> agora
-							</S.Title>
-							<S.Text>
-								{whatLote}
-							</S.Text>
-							<S.Formulary>
-								<div className="DivControl">
-									<label>Nome:</label>
-									<S.Input type="text" onChange={(e: any) => setName(e.target.value)} />
-								</div>
-								<div className="DivControl">
-									<label>Sobrenome:</label>
-									<S.Input type="text" onChange={(e: any) => setSurname(e.target.value)} />
-								</div>
-								<div className="DivControl">
-									<label>Email:</label>
-									<S.BoxInputText>
-										<S.Input type="email" onChange={(e: any) => setEmail(e.target.value)} required />
-									</S.BoxInputText>
-									<S.DivTextEmail>
-										<S.TextEmail>É extremamente importante usar o mesmo email que será usado no ato do </S.TextEmail>
-										<S.TextEmail>pagamento para que seu pagamento seja confirmado</S.TextEmail>
-									</S.DivTextEmail>
-								</div>
-								<S.DivInput>
-									<div className="DivInput">
-										<label>Telefone:</label>
-										<S.Mask>
-											<InputMask mask="(99)99999-9999" onChange={(e: any) => setTel(e.target.value)} />
-										</S.Mask>
-									</div>
-									<div className="DivControl">
-										<label>Cidade:</label>
-										<S.Input
-											type="text"
-											onChange={(e: any) => setCity(e.target.value)}
-										/>
-									</div>
-								</S.DivInput>
-								<div className="DivControl">
-									<label>pastor responsavel:</label>
-									<S.Input
-										type="text"
-										onChange={(e: any) => setSheperd(e.target.value)}
-									/>
-								</div>
-								<S.DivInput>
-									<div className="DivInput">
-										<label>igreja:</label>
-										<S.Input
-											required={true}
-											type="text"
-											onChange={(e: any) => setChurch(e.target.value)}
-										/>
-									</div>
-									<div className="Select">
-										<label>cargo:</label>
-										<S.Select onChange={(e: any) => setOffice(e.target.value)}>
-											<option>Selecione</option>
-											<option value="Pastor">Pastor</option>
-											<option value="Discipulador">Discipulador</option>
-											<option value="Lider">Líder</option>
-											<option value="Membro de celula">Membro de célula</option>
-										</S.Select>
-									</div>
-								</S.DivInput>
-							</S.Formulary>
-							<S.TextEnd>Restam {qtdMax - validator.length} vagas</S.TextEnd>
-							<S.ButtonSignUp
-								onClick={() => {
-									name && tel && church && sheperd && office && city
-										? saveData()
-										: alert("Preencha todos os campos para concluir a sua inscrição")
-								}}
-							>
-								Inscreva-se
-							</S.ButtonSignUp>
+							<S.ModalSign>
+								{qtdMax > validator?.length ?
+									<>
+										<S.Title Fsize={30}>
+											Faça sua <strong>inscrição</strong> agora
+										</S.Title>
+										<S.Text>
+											{whatLote}
+										</S.Text>
+										<S.Formulary>
+											<div className="DivControl">
+												<label>Nome:</label>
+												<S.Input type="text" onChange={(e: any) => setName(e.target.value)} />
+											</div>
+											<div className="DivControl">
+												<label>Sobrenome:</label>
+												<S.Input type="text" onChange={(e: any) => setSurname(e.target.value)} />
+											</div>
+											<div className="DivControl">
+												<label>Email:</label>
+												<S.BoxInputText>
+													<S.Input type="email" onChange={(e: any) => setEmail(e.target.value)} required />
+												</S.BoxInputText>
+												<S.DivTextEmail>
+													<S.TextEmail>É extremamente importante usar o mesmo email que será usado no ato do </S.TextEmail>
+													<S.TextEmail>pagamento para que seu pagamento seja confirmado</S.TextEmail>
+												</S.DivTextEmail>
+											</div>
+											<S.DivInput>
+												<div className="DivInput">
+													<label>Telefone:</label>
+													<S.Mask>
+														<InputMask mask="(99)99999-9999" onChange={(e: any) => setTel(e.target.value)} />
+													</S.Mask>
+												</div>
+												<div className="DivControl">
+													<label>Cidade:</label>
+													<S.Input
+														type="text"
+														onChange={(e: any) => setCity(e.target.value)}
+													/>
+												</div>
+											</S.DivInput>
+											<div className="DivControl">
+												<label>pastor responsavel:</label>
+												<S.Input
+													type="text"
+													onChange={(e: any) => setSheperd(e.target.value)}
+												/>
+											</div>
+											<S.DivInput>
+												<div className="DivInput">
+													<label>igreja:</label>
+													<S.Input
+														required={true}
+														type="text"
+														onChange={(e: any) => setChurch(e.target.value)}
+													/>
+												</div>
+												<div className="Select">
+													<label>cargo:</label>
+													<S.Select onChange={(e: any) => setOffice(e.target.value)}>
+														<option>Selecione</option>
+														<option value="Pastor">Pastor</option>
+														<option value="Discipulador">Discipulador</option>
+														<option value="Lider">Líder</option>
+														<option value="Membro de celula">Membro de célula</option>
+													</S.Select>
+												</div>
+											</S.DivInput>
+										</S.Formulary>
+										<S.TextEnd>Restam {qtdMax - validator.length} vagas</S.TextEnd>
+										<S.ButtonSignUp
+											onClick={() => {
+												name && tel && church && sheperd && office && city
+													? saveData()
+													: alert("Preencha todos os campos para concluir a sua inscrição")
+											}}
+										>
+											Inscreva-se
+										</S.ButtonSignUp>
+									</>
+									: <S.TextFinal>Inscrições Encerradas</S.TextFinal>
+								}
+							</S.ModalSign>
 						</>
 						:
-						<S.TextFinal>Inscrições Encerradas</S.TextFinal>
+						<>
+							<S.Loading >
+								<img src="../assets/abc.gif" />
+							</S.Loading >
+						</>
 					}
-				</S.ModalSign>
-			)}
-		</S.ContainerRight>
+				</S.ContainerRight>
+			}
+		</>
 	);
 };
 

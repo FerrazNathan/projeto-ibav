@@ -10,22 +10,24 @@ const DivGeneral = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   @media (max-width: 800px) {
 		padding: 0 5px;
+    /* width: 50%; */
   }
 `
 
 export const Loading = styled.div`
 & img{
   margin: 50px 0;
-  width: 100px;
-  height: 100px;
-}
+  width: 250px;
+  height: 250px;
   @media (max-width: 800px) {
-    margin: 190px;
-		margin-top: -100px;
+		margin-top: 0;
+    width: 180px;
+    height: 180px;
   }
+}
+  
 `
 export const DivTextInformation = styled.div`
   display: flex;
@@ -34,7 +36,7 @@ export const DivTextInformation = styled.div`
   justify-content: flex-end;
   width: 87%;  
   margin-left: 200px;
-  @media (max-width: 768px) {
+  @media (max-width: 1280px) {
     display: flex;
     flex-direction: column;
     width: 100%;
