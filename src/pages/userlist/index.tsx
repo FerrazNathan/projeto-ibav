@@ -78,7 +78,7 @@ const UserList = (Data) => {
     return item[1].status === 'lista-espera'
   })
 
-
+  // Função que transforma a lista em ordem alfabética
   listaDeInscritos?.sort(function (a, b) {
     if (a[1].name < b[1].name) {
       return -1;
@@ -87,9 +87,7 @@ const UserList = (Data) => {
     }
   });
 
-
-
-
+  // Função que valida se a pessoa se cadastrou com o mesmo número de telefone e não deixa exibir em tela
   const mock = listaDeInscritos.filter(function (a) {
     return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true);
   }, Object.create(null))
@@ -100,7 +98,7 @@ const UserList = (Data) => {
       <DivGeneral>
         {loading ? (
           <Loading>
-            <img src="../assets/loading-gif.gif" />
+            <img src="../assets/abc.gif" />
           </Loading>
         ) : (
           <>

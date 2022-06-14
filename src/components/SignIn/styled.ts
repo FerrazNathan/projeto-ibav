@@ -208,14 +208,20 @@ export const Select = styled.select`
     text-transform: uppercase;
     text-align: center;
   `
-export const Loading = styled.div`
-& img{
-  margin: 50px 0;
-  width: 100px;
-  height: 100px;
-}
-  @media (max-width: 800px) {
-    margin: 190px;
-		margin-top: -100px;
+  export const Loading = styled.div`
+    background: transparent;
+    & img{
+    margin: 50px 0;
+    width: 250px;
+    height: 250px;
+    background: transparent;
+    @media (max-width: 800px) {
+    margin-left: 50%;
+		margin-top: -10px;
+    width: 180px;
+    height: 180px;    
   }
+  }
+  
+  
 `
