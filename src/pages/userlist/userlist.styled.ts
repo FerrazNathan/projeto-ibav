@@ -34,13 +34,13 @@ export const DivTextInformation = styled.div`
   text-align: center;
   align-items: center;
   justify-content: flex-end;
-  width: 87%;  
-  margin-left: 200px;
+  width: 90%;  
+  margin: 80px auto 0;
   @media (max-width: 1280px) {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 0;
+    margin: 0;
   }
 `
 
@@ -50,7 +50,8 @@ export const TextInformation = styled.p`
   font-size: 14px;
   padding: 10px;
   margin-left: 400px;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
   border-radius:10px;
   @media(max-width: 768px) {
     margin-left:0
@@ -121,10 +122,10 @@ export const TextList = styled.h2`
   text-align: center;
   text-transform: uppercase;
   margin: 0;
-  margin-top: 4px;
-	margin-bottom: 20px;
+  width: 44%;
 	@media (max-width: 768px) {
 		margin-bottom: 20px;
+    width: 100%;
 	}
 `
 

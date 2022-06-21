@@ -17,7 +17,7 @@ import Header from "../Home/header";
 const UserList = (Data) => {
   const [loading, setLoading] = useState<any>(true);
   const [data, setData] = useState<any>([]);
-  const [dataPayment, setDataPayment] = useState<any>()
+  const [dataPayment, setDataPayment] = useState<any>([])
   const [validator, setValidator] = useState<any>([])
   const [listValid, setListValid] = useState<any>([])
 
@@ -32,9 +32,16 @@ const UserList = (Data) => {
     });
   }, [])
 
-  const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022'
+  const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved'
+  const uri2 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=50'
+  const uri3 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=100'
+  const uri4 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=150'
   const encoded = encodeURI(uri)
+  const encoded2 = encodeURI(uri2)
+  const encoded3 = encodeURI(uri3)
+  const encoded4 = encodeURI(uri4)
 
+  const limit = 50
   useEffect(() => {
     axios.get(encoded, {
       headers: {
@@ -43,9 +50,44 @@ const UserList = (Data) => {
     })
       .then((response) => {
         setDataPayment(response.data.results)
+
+        if (response.data.results.length === limit) {
+          axios.get(encoded2, {
+            headers: {
+              Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+            }
+          })
+            .then((response2) => {
+              setDataPayment([...response.data.results, ...response2.data.results])
+
+              if (response.data.results.length === limit) {
+                axios.get(encoded3, {
+                  headers: {
+                    Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+                  }
+                })
+                  .then((response3) => {
+                    setDataPayment([...response.data.results, ...response2.data.results, ...response3.data.results])
+
+                    if (response.data.results.length === limit) {
+                      axios.get(encoded4, {
+                        headers: {
+                          Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+                        }
+                      })
+                        .then((response4) => {
+                          setDataPayment([...response.data.results, ...response2.data.results, ...response3.data.results, ...response4.data.results])
+                        });
+                    }
+                  });
+              }
+            });
+        }
       });
 
   }, [])
+
+  console.log(dataPayment, 'dataPayment')
 
   useEffect(() => {
     const arrayEmailsAproved = dataPayment && dataPayment.map(item => {
@@ -54,7 +96,6 @@ const UserList = (Data) => {
       }
       return ''
     })
-
     const filtrado = arrayEmailsAproved && arrayEmailsAproved.filter(item => {
       return item !== ''
     })
@@ -92,6 +133,10 @@ const UserList = (Data) => {
     return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true);
   }, Object.create(null))
 
+
+  console.log(validator, 'vsaghdsauif')
+  console.log(listValid, 'listValid')
+
   return (
     <>
       <Header about={true} />
@@ -105,7 +150,7 @@ const UserList = (Data) => {
             <ModalSignUp>
               <DivTextInformation>
                 <TextList>Lista de inscritos ( {validator && validator.length} )</TextList>
-                <TextInformation>Para pagamentos com boleto, espere 3 dias para a confirmação</TextInformation>
+                <TextInformation>Para pagamentos em boleto, espere até 3 dias úteis para a confirmação do pagamento</TextInformation>
               </DivTextInformation>
               <DivList>
                 <DivName>
