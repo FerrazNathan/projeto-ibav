@@ -129,13 +129,9 @@ const UserList = (Data) => {
   });
 
   // Função que valida se a pessoa se cadastrou com o mesmo número de telefone e não deixa exibir em tela
-  const mock = listaDeInscritos.filter(function (a) {
-    return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true);
+  const validatePayment = listaDeInscritos.filter(function (a) {
+    return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true)
   }, Object.create(null))
-
-
-  console.log(validator, 'vsaghdsauif')
-  console.log(listValid, 'listValid')
 
   return (
     <>
@@ -162,7 +158,7 @@ const UserList = (Data) => {
                   <Describe display="none">Cidade</Describe>
                   <Describe>Pagamento</Describe>
                 </DivName>
-                {mock.map((item: any) => {
+                {validatePayment.map((item: any) => {
 
                   return (
                     <>
