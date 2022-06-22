@@ -61,28 +61,68 @@ const SignIn = () => {
 	const url = `https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json`
 
 	useEffect(() => {
-		axios.get(url).then((res) => {
-			if (res.data) {
-				setData(Object.entries(res.data))
-				setLoading(false)
-			}
-		});
-	}, [])
+    axios.get(url).then((res) => {
+      if (res.data) {
+        setData(Object.entries(res.data))
+        setLoading(false)
+      }
+    });
+  }, [])
 
-	const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022'
-	const encoded = encodeURI(uri)
+  const uri = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved'
+  const uri2 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=50'
+  const uri3 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=100'
+  const uri4 = 'https://api.mercadopago.com/v1/payments/search?sort=date_created&criteria=desc&description=Convenção Radicais Livres 2022&limit=50&status=approved&offset=150'
+  const encoded = encodeURI(uri)
+  const encoded2 = encodeURI(uri2)
+  const encoded3 = encodeURI(uri3)
+  const encoded4 = encodeURI(uri4)
 
-	useEffect(() => {
-		axios.get(encoded, {
-			headers: {
-				Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
-			}
-		})
-			.then((response) => {
-				setDataPayment(response.data.results)
-			});
+  const limit = 50
+  useEffect(() => {
+    axios.get(encoded, {
+      headers: {
+        Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+      }
+    })
+      .then((response) => {
+        setDataPayment(response.data.results)
 
-	}, [])
+        if (response.data.results.length === limit) {
+          axios.get(encoded2, {
+            headers: {
+              Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+            }
+          })
+            .then((response2) => {
+              setDataPayment([...response.data.results, ...response2.data.results])
+
+              if (response.data.results.length === limit) {
+                axios.get(encoded3, {
+                  headers: {
+                    Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+                  }
+                })
+                  .then((response3) => {
+                    setDataPayment([...response.data.results, ...response2.data.results, ...response3.data.results])
+
+                    if (response.data.results.length === limit) {
+                      axios.get(encoded4, {
+                        headers: {
+                          Authorization: 'Bearer APP_USR-1739479935263753-060921-ebd0e354a27881d9c2444a96b0bdbb80-127832490'
+                        }
+                      })
+                        .then((response4) => {
+                          setDataPayment([...response.data.results, ...response2.data.results, ...response3.data.results, ...response4.data.results])
+                        });
+                    }
+                  });
+              }
+            });
+        }
+      });
+
+  }, [])
 
 	useEffect(() => {
 		const arrayEmailsAproved = dataPayment && dataPayment.map(item => {
