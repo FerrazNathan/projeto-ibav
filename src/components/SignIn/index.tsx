@@ -57,7 +57,7 @@ const SignIn = () => {
 		}
 	}
 
-	const qtdMax = 200
+	const qtdMax = 190
 	const url = `https://conferencia-radicais-default-rtdb.firebaseio.com/inscritos.json`
 
 	useEffect(() => {
