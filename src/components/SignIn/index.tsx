@@ -39,7 +39,7 @@ const SignIn = () => {
 						window.location.href = 'https://mpago.la/1GuyTRq';
 					}
 					else if (whatLote === '2° Lote R$ 50,00') {
-						window.location.href = 'https://mpago.la/2Jmr4gq';
+						window.location.href = 'https://mpago.la/29CTH6z';
 					}
 					else if (whatLote === '3° Lote R$ 60,00') {
 						window.location.href = 'https://mpago.la/14bcJRV';
@@ -144,9 +144,9 @@ const SignIn = () => {
 		setListValid(valid)
 	}, [dataPayment])
 
-	const firstLote = new Date('June 26, 2022 23:59:59')
-	const secondLote = new Date('July 17, 2022 23:59:59')
-	const thirdLote = new Date('July 30, 2022 23:59:59')
+	const firstLote = new Date('June 25, 2022 23:59:59')
+	const secondLote = new Date('July 24, 2022 23:59:59')
+	const thirdLote = new Date('July 31, 2022 23:59:59')
 	const today = new Date()
 
 	useEffect(() => {
