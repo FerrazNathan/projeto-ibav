@@ -42,7 +42,7 @@ const SignIn = () => {
 						window.location.href = 'https://mpago.la/29CTH6z';
 					}
 					else if (whatLote === '3° Lote R$ 60,00') {
-						window.location.href = 'https://mpago.la/14bcJRV';
+						window.location.href = 'https://mpago.la/2CYExkr';
 					}
 					{
 						alert("Sua inscrição será concluída após a confirmação do pagamento")

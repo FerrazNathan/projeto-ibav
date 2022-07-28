@@ -133,16 +133,6 @@ const UserList = (Data) => {
     return !this[JSON.stringify(a[1].tel)] && (this[JSON.stringify(a[1].tel)] = true)
   }, Object.create(null))
 
-
-//   const teste = listaDeInscritos.filter(item => {
-//     listaDeInscritos = listaDeInscritos.find(item2 =>{
-// if(item2[1].tel && item[1].name){
-// console.log('dsajdklasdlkaj')
-// }
-//     })
-//   })
-// console.log(teste, 'teste')
-console.log(validatePayment, 'validatePayment')
   return (
     <>
       <Header about={true} />
